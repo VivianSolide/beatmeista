@@ -40,3 +40,6 @@ container {
 .nope {
   display: none;
 }
+.shine {
+  background-color: green;
+}

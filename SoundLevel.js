@@ -31,7 +31,12 @@ function SoundLevel(music, check) {
     //// kick
     if (that.answers.answerKick[that.i] === 1) {
       new Audio(that.music.sounds.kick).play();
-    }
+    } 
+    // else if (that.answers.answerKick[that.i] === 0) {
+    //   $("button[position=" + that.i + "]").toggleClass("shine");
+    //   // $( "button[position=" + that.i + "]").previous().removeClass();
+    //   console.log($("button[position=" + that.i + "]"));
+    // }
     //// snare
     if (that.answers.answerSnare[that.i] === 1) {
       new Audio(that.music.sounds.snare).play();

@@ -63,9 +63,8 @@ $("#bds").click(function() {
 });
 
 ///check
-
 setInterval(function() {
-  ////kick
+  ////hhopened
   if (_.isEqual(sl.answers.answerHhOpened, check[0].checkHhOpened))
     $("#s1 > div > div > div.col-9 > div:nth-child(5) > img:nth-child(18)")
       .removeClass()
@@ -74,7 +73,7 @@ setInterval(function() {
     $("#s1 > div > div > div.col-9 > div:nth-child(5) > img:nth-child(18)")
       .removeClass()
       .addClass("nope");
-  ////kick
+  ////hhclosed
   if (_.isEqual(sl.answers.answerHhClosed, check[0].checkHhClosed))
     $("#s1 > div > div > div.col-9 > div:nth-child(6) > img:nth-child(18)")
       .removeClass()
@@ -83,7 +82,7 @@ setInterval(function() {
     $("#s1 > div > div > div.col-9 > div:nth-child(6) > img:nth-child(18)")
       .removeClass()
       .addClass("nope");
-  ////kick
+  ////snare
   if (_.isEqual(sl.answers.answerSnare, check[0].checkSnare))
     $("#s1 > div > div > div.col-9 > div:nth-child(7) > img:nth-child(18)")
       .removeClass()
@@ -101,4 +100,13 @@ setInterval(function() {
     $("#s1 > div > div > div.col-9 > div:nth-child(8) > img:nth-child(18)")
       .removeClass()
       .addClass("nope");
+  if (
+    _.isEqual(sl.answers.answerHhOpened, check[0].checkHhOpened) &&
+    _.isEqual(sl.answers.answerHhClosed, check[0].checkHhClosed) &&
+    _.isEqual(sl.answers.answerSnare, check[0].checkSnare) &&
+    _.isEqual(sl.answers.answerKick, check[0].checkKick)
+  ) {
+    $("#gg").removeClass("nope");
+    $("#s1 > div > div > div.col-lg-12.text-right > h2").text(check[0].pts);
+  }
 }, 100);
