@@ -5,19 +5,19 @@ function SoundLevel(music, check) {
     artist: music.artist,
     year: music.year,
     sounds: music.sounds,
-    tempo: music.tempo, // 140
+    tempo: music.tempo,
     times: music.times,
-    spot: music.spot // url
+    spot: music.spot
   };
   this.answers = {
-    answerKick: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], //[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0],
-    answerSnare: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], //[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-    answerHhClosed: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], //[0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1],
-    answerHhOpened: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] //[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    answerKick: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    answerSnare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    answerHhClosed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    answerHhOpened: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   };
   this.check = {
     id: check.id,
-    checkKick: check.checkKick, // [1,0,0,0,1]
+    checkKick: check.checkKick,
     checkSnare: check.checkSnare,
     checkHhClosed: check.checkHhClosed,
     checkHhOpened: check.checkHhOpened,

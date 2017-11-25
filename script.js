@@ -48,3 +48,57 @@ $("#s1 > div > div > div.col-9 > div:nth-child(8) > button").click(function() {
     sl.answers.answerKick.splice($(this).attr("position"), 1, 0);
   }
 });
+
+///bds
+$("#bds").click(function() {
+  sl.answers = {
+    answerKick: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0],
+    answerSnare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+    answerHhClosed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1],
+    answerHhOpened: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] //[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  };
+  $("button.box")
+    .removeClass()
+    .addClass("box");
+});
+
+///check
+
+setInterval(function() {
+  ////kick
+  if (_.isEqual(sl.answers.answerHhOpened, check[0].checkHhOpened))
+    $("#s1 > div > div > div.col-9 > div:nth-child(5) > img:nth-child(18)")
+      .removeClass()
+      .addClass("item align-top");
+  else if (!_.isEqual(sl.answers.answerHhOpened, check[0].checkHhOpened))
+    $("#s1 > div > div > div.col-9 > div:nth-child(5) > img:nth-child(18)")
+      .removeClass()
+      .addClass("nope");
+  ////kick
+  if (_.isEqual(sl.answers.answerHhClosed, check[0].checkHhClosed))
+    $("#s1 > div > div > div.col-9 > div:nth-child(6) > img:nth-child(18)")
+      .removeClass()
+      .addClass("item align-top");
+  else if (!_.isEqual(sl.answers.answerHhClosed, check[0].checkHhClosed))
+    $("#s1 > div > div > div.col-9 > div:nth-child(6) > img:nth-child(18)")
+      .removeClass()
+      .addClass("nope");
+  ////kick
+  if (_.isEqual(sl.answers.answerSnare, check[0].checkSnare))
+    $("#s1 > div > div > div.col-9 > div:nth-child(7) > img:nth-child(18)")
+      .removeClass()
+      .addClass("item align-top");
+  else if (!_.isEqual(sl.answers.answerSnare, check[0].checkSnare))
+    $("#s1 > div > div > div.col-9 > div:nth-child(7) > img:nth-child(18)")
+      .removeClass()
+      .addClass("nope");
+  ////kick
+  if (_.isEqual(sl.answers.answerKick, check[0].checkKick))
+    $("#s1 > div > div > div.col-9 > div:nth-child(8) > img:nth-child(18)")
+      .removeClass()
+      .addClass("item align-top");
+  else if (!_.isEqual(sl.answers.answerKick, check[0].checkKick))
+    $("#s1 > div > div > div.col-9 > div:nth-child(8) > img:nth-child(18)")
+      .removeClass()
+      .addClass("nope");
+}, 100);
