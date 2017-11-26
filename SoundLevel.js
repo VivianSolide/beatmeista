@@ -15,6 +15,10 @@ function SoundLevel(music, check) {
     answerHhClosed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     answerHhOpened: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     answerTempo: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    /*    checkKick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    checkSnare: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    checkHhClosed: [1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1],
+    checkHhOpened: [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0], */
   };
   this.check = {
     id: check.id,
@@ -56,15 +60,15 @@ function SoundLevel(music, check) {
         "shine"
       );
       if (that.i === 15) {
-        $("div.track.tempo > button[position='0']").toggleClass(
-          "shine"
-        );
+        $("div.track.tempo > button[position='0']").toggleClass("shine");
       }
       if (that.i === 0) {
-        $("div.track.tempo > button[position='15']").removeClass().addClass("box");
+        $("div.track.tempo > button[position='15']")
+          .removeClass()
+          .addClass("box");
       }
     }
-  }, that.music.tempo);
+  }, 60000 / that.music.tempo / 4);
 }
 
 /// Music it's people ...
@@ -108,11 +112,11 @@ var music = [
 /// Check one, two
 var check = [
   {
-    id: "1",
+    id: "1", // https://www.youtube.com/watch?v=xLCVNUj40I0 //
     checkKick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     checkSnare: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-    checkHhClosed: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-    checkHhOpened: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    checkHhClosed: [1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1],
+    checkHhOpened: [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0],
     pts: 100
   },
   {
