@@ -27,12 +27,12 @@ container {
 .k {
   background-color: lightcoral;
 }
-.tempo > .box {
+/* .tempo > .box {
   background-color: black;
-}
-.hit {
-  background-color: red;
-}
+} */
+/* .hit {
+
+} */
 .item {
   height: 60px;
   width: 60px;
@@ -40,6 +40,14 @@ container {
 .nope {
   display: none;
 }
+div.track.tempo > button {
+  background-color: black;
+  border-radius: 50%;
+}
 .shine {
-  background-color: green;
+  height: 60px;
+  width: 60px;
+  margin: 3px;
+  border-radius: 50px;
+  background-color: red !important;
 }

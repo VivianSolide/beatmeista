@@ -13,7 +13,8 @@ function SoundLevel(music, check) {
     answerKick: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     answerSnare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     answerHhClosed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    answerHhOpened: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    answerHhOpened: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    answerTempo: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   };
   this.check = {
     id: check.id,
@@ -24,19 +25,15 @@ function SoundLevel(music, check) {
     points: check.pts
   };
   var that = this;
-  this.i = 0;
+  this.i = -1;
   /// Playmobil
   setInterval(function() {
     that.i = (that.i + 1) % that.music.times;
+
     //// kick
     if (that.answers.answerKick[that.i] === 1) {
       new Audio(that.music.sounds.kick).play();
-    } 
-    // else if (that.answers.answerKick[that.i] === 0) {
-    //   $("button[position=" + that.i + "]").toggleClass("shine");
-    //   // $( "button[position=" + that.i + "]").previous().removeClass();
-    //   console.log($("button[position=" + that.i + "]"));
-    // }
+    }
     //// snare
     if (that.answers.answerSnare[that.i] === 1) {
       new Audio(that.music.sounds.snare).play();
@@ -48,6 +45,24 @@ function SoundLevel(music, check) {
     //// hhopened
     if (that.answers.answerHhOpened[that.i] === 1) {
       new Audio(that.music.sounds.hhopened).play();
+    }
+    //// tempo
+    // console.log(that.i);
+    if (that.answers.answerTempo[that.i] === 1) {
+      $("div.track.tempo > button[position=" + (that.i - 1) + "]")
+        .removeClass()
+        .addClass("box");
+      $("div.track.tempo > button[position=" + that.i + "]").toggleClass(
+        "shine"
+      );
+      if (that.i === 15) {
+        $("div.track.tempo > button[position='0']").toggleClass(
+          "shine"
+        );
+      }
+      if (that.i === 0) {
+        $("div.track.tempo > button[position='15']").removeClass().addClass("box");
+      }
     }
   }, that.music.tempo);
 }
