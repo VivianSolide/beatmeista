@@ -79,6 +79,7 @@ var music = [
     track: "Revolution 909",
     artist: "Daft Punk",
     year: "1998",
+    beatbox : "tr-909", // classe CSS 
     sounds: {
       kick: "sounds/1/k.wav",
       snare: "sounds/1/s.wav",
