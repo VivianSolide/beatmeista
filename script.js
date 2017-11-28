@@ -1,36 +1,38 @@
-//    Start game & Next level
+//    Start game
 $("#go").click(function() {
-  $("#title").text(sl.music.track);
-  $("#artist").text(sl.music.artist);
-  $("#year").text(sl.music.year);
-  var html = "";
-  for (var j = 0; j < Object.keys(sl.music.sounds).length; j++) {
-    html += '<div class="track' + j + '"><img src="">';
-    for (var i = 0; i < sl.music.times; i++) {
-      html += '<button class="box" position="' + i + '"></button>';
-    }
-    html += '<img src="http://cdn.onlinewebfonts.com/svg/img_237800.png" class="item align-top nope">';
-    html += "</div>";
-  }
+  sl.html();
+  
+  // $("#title").text(sl.music.track);
+  // $("#artist").text(sl.music.artist);
+  // $("#year").text(sl.music.year);
+  // var html = "";
+  // for (var j = 0; j < Object.keys(sl.music.sounds).length; j++) {
+  //   html += '<div class="track' + j + '"><img src="">';
+  //   for (var i = 0; i < sl.music.times; i++) {
+  //     html += '<button class="box" position="' + i + '"></button>';
+  //   }
+  //   html +=
+  //     '<img src="http://cdn.onlinewebfonts.com/svg/img_237800.png" class="item align-top nope">';
+  //   html += "</div>";
+  // }
 
-  html += '<div class="track tempo"><img>';
-  for (var k = 0; k < sl.music.times; k++) {
-    html += '<button class="box yolo" position="' + k + '"></button>';
-  }
-  html += "</div>";
-  $("#tracks").append(html);
+  // html += '<div class="track tempo"><img>';
+  // for (var k = 0; k < sl.music.times; k++) {
+  //   html += '<button class="box yolo" position="' + k + '"></button>';
+  // }
+  // html += "</div>";
+  // $("#tracks").append(html);
 
-  $("#s1 > div > div > div.col-lg-12.text-right").append(
-    "<h2>Score</h2><h3>0</h3>"
-  );
-  $("#s1 > div > div > div.col-2.align-center").append(sl.music.spot);
+  // $("#s1 > div > div > div.col-lg-12.text-right").append(
+  //   "<h2>0</h2><h3>points</h3>"
+  // );
+  // $("#s1 > div > div > div.col-2.align-center").append(sl.music.spot);
 
   //    Box
   ///   1st track
   ////  hho
   $("#tracks > div.track0 > button").click(function() {
     $(this).toggleClass("hho");
-    console.log("yolo");
     if (sl.answers.answerHhOpened[$(this).attr("position")] == 0) {
       new Audio(
         "/home/vivian/Bureau/IRON HACK/2_PROJECTS/beatmeista/sounds/1/hho.wav"
@@ -80,10 +82,10 @@ $("#go").click(function() {
   ///bds
   $("#bds").click(function() {
     sl.answers = {
-      answerKick: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0],
-      answerSnare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-      answerHhClosed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1],
-      answerHhOpened: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      answerKick: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      answerSnare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      answerHhClosed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      answerHhOpened: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       answerTempo: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     };
     $("button.box")
@@ -135,7 +137,7 @@ $("#go").click(function() {
       _.isEqual(sl.answers.answerSnare, check[0].checkSnare) &&
       _.isEqual(sl.answers.answerKick, check[0].checkKick)
     ) {
-      $("#gg").removeClass("nope");
+      $("#gg1").removeClass("nope");
       $("#s1 > div > div > div.col-lg-12.text-right > h2").text(check[0].pts);
     }
   }, 100);

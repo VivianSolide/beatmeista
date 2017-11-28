@@ -79,34 +79,35 @@ var music = [
     track: "Revolution 909",
     artist: "Daft Punk",
     year: "1998",
-    beatbox : "tr-909", // classe CSS 
+    beatbox: "tr-909", // classe CSS
     sounds: {
       kick: "sounds/1/k.wav",
       snare: "sounds/1/s.wav",
       hhclosed: "sounds/1/hhc.wav",
       hhopened: "sounds/1/hho.wav"
     },
-    tempo: 127,
+    tempo: 128,
     times: 16,
     spot:
       '<iframe src="https://open.spotify.com/embed/track/5pgZpHqfv4TSomtkfGZGrG" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
   },
   {
     id: "2",
-    track: "It's Tricky",
-    artist: "RUN D.M.C",
+    track: "You Spin Me Round",
+    artist: "Dead or Alive",
     year: "1998",
+    beatbox: "linn",
     sounds: {
       kick: "sounds/2/k.wav",
       snare: "sounds/2/s.wav",
       hhclosed: "sounds/2/hhc.wav",
       hhopened: "sounds/2/hho.wav"
     },
-    tempo: 110,
+    tempo: 128,
     times: 16,
     step: 0,
     spot:
-      '<iframe src="https://open.spotify.com/embed/track/6jBCehpNMkwFVF3dz4nLIW" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>2'
+      '<iframe src="https://open.spotify.com/embed/track/0BB9eUBBaaX6GALSYNcEp7" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>'
   }
 ];
 
@@ -122,12 +123,42 @@ var check = [
   },
   {
     id: "2",
-    checkKick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-    checkSnare: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-    checkHhClosed: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-    checkHhOpened: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-    pts: 100
+    checkKick: [],
+    checkSnare: [],
+    checkHhClosed: [],
+    checkHhOpened: [],
+    pts: 200
   }
 ];
+
+SoundLevel.prototype.play = function() {};
+
+SoundLevel.prototype.html = function() {
+  $("#title").text(this.music.track);
+  $("#artist").text(this.music.artist);
+  $("#year").text(this.music.year);
+  var html = "";
+  for (var j = 0; j < Object.keys(this.music.sounds).length; j++) {
+    html += '<div class="track' + j + '"><img src="">';
+    for (var i = 0; i < this.music.times; i++) {
+      html += '<button class="box" position="' + i + '"></button>';
+    }
+    html +=
+      '<img src="http://cdn.onlinewebfonts.com/svg/img_237800.png" class="item align-top nope">';
+    html += "</div>";
+  }
+
+  html += '<div class="track tempo"><img>';
+  for (var k = 0; k < this.music.times; k++) {
+    html += '<button class="box yolo" position="' + k + '"></button>';
+  }
+  html += "</div>";
+  $("#tracks").append(html);
+
+  $("#s1 > div > div > div.col-lg-12.text-right").append(
+    "<h2>0</h2><h3>points</h3>"
+  );
+  $("#s1 > div > div > div.col-2.align-center").append(this.music.spot);
+};
 
 var sl = new SoundLevel(music[0], check[0]);
