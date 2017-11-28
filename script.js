@@ -1,3 +1,20 @@
+//    Start game & Next level
+$("#go").click(function() {
+  $("#title").text(sl.music.track);
+  $("#artist").text(sl.music.artist);
+  $("#year").text(sl.music.year);
+  for (var j = 0; j < Object.keys(sl.music.sounds).length; j++) {
+    $("#tracks").append('<div class="track"><img src="">');
+    for (var i = 0; i < sl.music.times; i++) {
+      $("#tracks").append('<button class="box" position' + i + '"></button>');
+    }
+  }
+  $("#tracks").append('<div class="track tempo"><img>');
+  for (var k = 0; k < sl.music.times; k++) {
+    $("#tracks").append('<button class="box yolo" position' + k + '"></button>');
+  }
+});
+
 //    Box
 ///   1st track
 ////  hho
@@ -38,6 +55,9 @@ $("#s1 > div > div > div.col-9 > div:nth-child(7) > button").click(function() {
 });
 ////  kick
 $("#s1 > div > div > div.col-9 > div:nth-child(8) > button").click(function() {
+  // if (sl.answers.answerKick){
+
+  // }
   $(this).toggleClass("k");
   if (sl.answers.answerKick[$(this).attr("position")] == 0) {
     new Audio(
@@ -56,7 +76,7 @@ $("#bds").click(function() {
     answerSnare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
     answerHhClosed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1],
     answerHhOpened: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    answerTempo : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    answerTempo: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   };
   $("button.box")
     .removeClass()

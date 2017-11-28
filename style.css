@@ -40,7 +40,7 @@ container {
 .nope {
   display: none;
 }
-div.track.tempo > button {
+div.track.tempo > button, .yolo {
   background-color: black;
   border-radius: 50%;
 }

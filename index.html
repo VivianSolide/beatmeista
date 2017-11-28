@@ -1,5 +1,5 @@
 <!Doctype HTML>
-
+<!--http://bootstraptour.com/-->
 <html lang="en">
 
 <head>
@@ -18,8 +18,10 @@
           <h1>Hello World!</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est cum earum et quisquam, consequuntur doloribus voluptates
             amet fugit, qui unde, aperiam non ducimus perspiciatis cumque! Cum labore asperiores perspiciatis explicabo!</p>
-          <button type="button" class="btn btn-primary">Primary</button>
-          <button type="button" class="btn btn-secondary">Secondary</button>
+          <button type="button" class="btn btn-primary" id="go">Primary</button>
+          <a href="https://www.google.fr">
+            <button type="button" class="btn btn-secondary">Secondary</button>
+          </a>
         </div>
         <div class="col">
           <img src="https://vignette.wikia.nocookie.net/desencyclopedie/images/c/c5/Troll_face.jpg/revision/latest?cb=20120916131409"
@@ -39,141 +41,145 @@
           <button type="button" class="btn btn-danger center" id="bds">Break dat
             <br/>shit</button>
           <button type="button" class="btn btn-warning" id="lg">Pause</button>
-            <button type="button" class="btn btn-info" id="play">Play</button>
+          <button type="button" class="btn btn-info" id="play">Play</button>
         </div>
         <div class="col-9">
           <!-- INFOS -->
-          <h2>Revolution 909</h2>
-          <h3>Daft Punk</h3>
-          <h4>1995</h4>
-          <h4>127 BPM</h4>
-          <!--HH OPEN-->
-          <div class="track">
-            <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
-              alt="">
-            <button class="box" position="0"></button>
-            <button class="box" position="1"></button>
-            <button class="box" position="2"></button>
-            <button class="box" position="3"></button>
-            <button class="box" position="4"></button>
-            <button class="box" position="5"></button>
-            <button class="box" position="6"></button>
-            <button class="box" position="7"></button>
-            <button class="box" position="8"></button>
-            <button class="box" position="9"></button>
-            <button class="box" position="10"></button>
-            <button class="box" position="11"></button>
-            <button class="box" position="12"></button>
-            <button class="box" position="13"></button>
-            <button class="box" position="14"></button>
-            <button class="box" position="15"></button>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1024px-Yes_Check_Circle.svg.png"
-              class="nope align-baseline item" alt="">
-          </div>
+          <h2 id="title"></h2>
+          <h3 id="artist"></h3>
+          <h4 id="year"></h4>
+          <div id="tracks">
+            <!--HH OPEN-->
+            <div class="track">
+              <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
+                alt="">
+              <button class="box" position="0"></button>
+              <button class="box" position="1"></button>
+              <button class="box" position="2"></button>
+              <button class="box" position="3"></button>
+              <button class="box" position="4"></button>
+              <button class="box" position="5"></button>
+              <button class="box" position="6"></button>
+              <button class="box" position="7"></button>
+              <button class="box" position="8"></button>
+              <button class="box" position="9"></button>
+              <button class="box" position="10"></button>
+              <button class="box" position="11"></button>
+              <button class="box" position="12"></button>
+              <button class="box" position="13"></button>
+              <button class="box" position="14"></button>
+              <button class="box" position="15"></button>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1024px-Yes_Check_Circle.svg.png"
+                class="nope align-baseline item" alt="">
+            </div>
 
-          <!--HH CLOSED-->
-          <div class="track">
-            <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
-              alt="">
-            <button class="box" position="0"></button>
-            <button class="box" position="1"></button>
-            <button class="box" position="2"></button>
-            <button class="box" position="3"></button>
-            <button class="box" position="4"></button>
-            <button class="box" position="5"></button>
-            <button class="box" position="6"></button>
-            <button class="box" position="7"></button>
-            <button class="box" position="8"></button>
-            <button class="box" position="9"></button>
-            <button class="box" position="10"></button>
-            <button class="box" position="11"></button>
-            <button class="box" position="12"></button>
-            <button class="box" position="13"></button>
-            <button class="box" position="14"></button>
-            <button class="box" position="15"></button>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1024px-Yes_Check_Circle.svg.png"
-              class="nope align-baseline item" alt="">
-          </div>
+            <!--HH CLOSED-->
+            <div class="track">
+              <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
+                alt="">
+              <button class="box" position="0"></button>
+              <button class="box" position="1"></button>
+              <button class="box" position="2"></button>
+              <button class="box" position="3"></button>
+              <button class="box" position="4"></button>
+              <button class="box" position="5"></button>
+              <button class="box" position="6"></button>
+              <button class="box" position="7"></button>
+              <button class="box" position="8"></button>
+              <button class="box" position="9"></button>
+              <button class="box" position="10"></button>
+              <button class="box" position="11"></button>
+              <button class="box" position="12"></button>
+              <button class="box" position="13"></button>
+              <button class="box" position="14"></button>
+              <button class="box" position="15"></button>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1024px-Yes_Check_Circle.svg.png"
+                class="nope align-baseline item" alt="">
+            </div>
 
-          <!--SNARE-->
-          <div class="track">
-            <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
-              alt="">
-            <button class="box" position="0"></button>
-            <button class="box" position="1"></button>
-            <button class="box" position="2"></button>
-            <button class="box" position="3"></button>
-            <button class="box" position="4"></button>
-            <button class="box" position="5"></button>
-            <button class="box" position="6"></button>
-            <button class="box" position="7"></button>
-            <button class="box" position="8"></button>
-            <button class="box" position="9"></button>
-            <button class="box" position="10"></button>
-            <button class="box" position="11"></button>
-            <button class="box" position="12"></button>
-            <button class="box" position="13"></button>
-            <button class="box" position="14"></button>
-            <button class="box" position="15"></button>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1024px-Yes_Check_Circle.svg.png"
-              class="nope align-baseline item" alt="">
-          </div>
+            <!--SNARE-->
+            <div class="track">
+              <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
+                alt="">
+              <button class="box" position="0"></button>
+              <button class="box" position="1"></button>
+              <button class="box" position="2"></button>
+              <button class="box" position="3"></button>
+              <button class="box" position="4"></button>
+              <button class="box" position="5"></button>
+              <button class="box" position="6"></button>
+              <button class="box" position="7"></button>
+              <button class="box" position="8"></button>
+              <button class="box" position="9"></button>
+              <button class="box" position="10"></button>
+              <button class="box" position="11"></button>
+              <button class="box" position="12"></button>
+              <button class="box" position="13"></button>
+              <button class="box" position="14"></button>
+              <button class="box" position="15"></button>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1024px-Yes_Check_Circle.svg.png"
+                class="nope align-baseline item" alt="">
+            </div>
 
-          <!--KICK-->
-          <div class="track">
-            <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
-              alt="">
-            <button class="box" position="0"></button>
-            <button class="box" position="1"></button>
-            <button class="box" position="2"></button>
-            <button class="box" position="3"></button>
-            <button class="box" position="4"></button>
-            <button class="box" position="5"></button>
-            <button class="box" position="6"></button>
-            <button class="box" position="7"></button>
-            <button class="box" position="8"></button>
-            <button class="box" position="9"></button>
-            <button class="box" position="10"></button>
-            <button class="box" position="11"></button>
-            <button class="box" position="12"></button>
-            <button class="box" position="13"></button>
-            <button class="box" position="14"></button>
-            <button class="box" position="15"></button>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1024px-Yes_Check_Circle.svg.png"
-              class="nope align-baseline item" alt="">
-          </div>
+            <!--KICK-->
+            <div class="track">
+              <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
+                alt="">
+              <button class="box" position="0"></button>
+              <button class="box" position="1"></button>
+              <button class="box" position="2"></button>
+              <button class="box" position="3"></button>
+              <button class="box" position="4"></button>
+              <button class="box" position="5"></button>
+              <button class="box" position="6"></button>
+              <button class="box" position="7"></button>
+              <button class="box" position="8"></button>
+              <button class="box" position="9"></button>
+              <button class="box" position="10"></button>
+              <button class="box" position="11"></button>
+              <button class="box" position="12"></button>
+              <button class="box" position="13"></button>
+              <button class="box" position="14"></button>
+              <button class="box" position="15"></button>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/1024px-Yes_Check_Circle.svg.png"
+                class="nope align-baseline item" alt="">
+            </div>
 
-          <!--TEMPO-->
-          <div class="track tempo">
-            <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
-              alt="">
-            <button class="box" position="0"></button>
-            <button class="box" position="1"></button>
-            <button class="box" position="2"></button>
-            <button class="box" position="3"></button>
-            <button class="box" position="4"></button>
-            <button class="box" position="5"></button>
-            <button class="box" position="6"></button>
-            <button class="box" position="7"></button>
-            <button class="box" position="8"></button>
-            <button class="box" position="9"></button>
-            <button class="box" position="10"></button>
-            <button class="box" position="11"></button>
-            <button class="box" position="12"></button>
-            <button class="box" position="13"></button>
-            <button class="box" position="14"></button>
-            <button class="box" position="15"></button>
+            <!--TEMPO-->
+            <div class="track tempo">
+              <img class="item align-baseline" src="https://www.tenstickers.be/stickers/img/preview/sticker-decoratif-troll-face-8744.png"
+                alt="">
+              <button class="box" position="0"></button>
+              <button class="box" position="1"></button>
+              <button class="box" position="2"></button>
+              <button class="box" position="3"></button>
+              <button class="box" position="4"></button>
+              <button class="box" position="5"></button>
+              <button class="box" position="6"></button>
+              <button class="box" position="7"></button>
+              <button class="box" position="8"></button>
+              <button class="box" position="9"></button>
+              <button class="box" position="10"></button>
+              <button class="box" position="11"></button>
+              <button class="box" position="12"></button>
+              <button class="box" position="13"></button>
+              <button class="box" position="14"></button>
+              <button class="box" position="15"></button>
+            </div>
           </div>
-
         </div>
         <div class="col-2 align-center">
           <iframe src="https://open.spotify.com/embed/track/5pgZpHqfv4TSomtkfGZGrG" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
         </div>
         <div class="col-lg-12 text-center">
-          <button type="button" class="btn btn-success center nope" id="gg">Next?</button>
+          <button type="button" class="btn btn-success center" id="gg1">Next?</button>
         </div>
       </div>
     </div>
+  </section>
+  <!-- From js with love -->
+  <section id="sl1">
+
   </section>
   <!--Scriptsssssss-->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
