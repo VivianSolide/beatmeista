@@ -15,16 +15,16 @@ container {
 /* .box:hover {
   background-color: rgba(211, 211, 211, 0.1);
 } */
-.hho {
+.hhopened {
   background-color: blueviolet;
 }
-.hhc {
+.hhclosed {
   background-color: lightgreen;
 }
-.s {
+.snare {
   background-color: lightskyblue;
 }
-.k {
+.kick {
   background-color: lightcoral;
 }
 /* .tempo > .box {

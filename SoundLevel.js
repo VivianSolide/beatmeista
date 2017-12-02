@@ -146,11 +146,11 @@ SoundLevel.prototype.play = function() {
       $("div.track.tempo > button[position=" + that.i + "]").toggleClass(
         "shine"
       );
-      if (that.i === 15) {
+      if (that.i == (that.music.times - 1)) {
         $("div.track.tempo > button[position='0']").toggleClass("shine");
       }
       if (that.i === 0) {
-        $("div.track.tempo > button[position='15']")
+        $("div.track.tempo > button[position=" + that.music.times - 1 + "]")
           .removeClass()
           .addClass("box");
       }
@@ -159,18 +159,23 @@ SoundLevel.prototype.play = function() {
 };
 
 SoundLevel.prototype.track = function() {
+  var that = this;
   var arrayKeys = Object.keys(this.answers);
-  for (var i = 0; i < arrayKeys.length; i++) {
-    if (this.answers[arrayKeys[i]][$(this).attr("position")] == 0) {
+  for (let i = arrayKeys.length - 1; i >= 0; i--) {
+    $("#tracks > div.track" + i + " > button").click(function(){
+      $(this).toggleClass(Object.keys(that.answers).reverse()[i + 1]);
+    });
+    if (Object.keys(that.answers).reverse()[i + 1][$(this).attr("position")] == 0) {
       new Audio(
         "/home/vivian/Bureau/IRON HACK/2_PROJECTS/beatmeista/sounds/" +
-          this.music.id +
+          that.music.id +
           "/hho.wav"
       ).play();
-      this.answers[i].splice($(this).attr("position"), 1, 1);
-      console.log(this.answers[i].splice($(this).attr("position"), 1, 1));
-    } else if (this.answers[arrayKeys[i]][$(this).attr("position")] == 1) {
-      this.answers[i].splice($(this).attr("position"), 1, 0);
+      Object.keys(that.answers).reverse()[i + 1].splice($(this).attr("position"), 1, 1);
+      // console.log(that.answers[i].splice($(this).attr("position"), 1, 1));
+    } 
+    else if (Object.keys(that.answers).reverse()[i + 1][$(this).attr("position")] == 1) {
+      Object.keys(that.answers).reverse()[i + 1].splice($(this).attr("position"), 1, 0);
     }
   }
 
@@ -178,7 +183,7 @@ SoundLevel.prototype.track = function() {
   //   $(this).toggleClass("hho");
   //   if (this.answers.answerHhOpened[$(this).attr("position")] == 0) {
   //     new Audio(
-  //       "/home/vivian/Bureau/IRON HACK/2_PROJECTS/beatmeista/sounds/1/hho.wav"
+  //       "/home/vivian/Bureau/IRONHACK/2_PROJECTS/beatmeista/sounds/1/hho.wav"
   //     ).play();
   //     this.answers.answerHhOpened.splice($(this).attr("position"), 1, 1);
   //   } else if (this.answers.answerHhOpened[$(this).attr("position")] == 1) {
@@ -186,5 +191,4 @@ SoundLevel.prototype.track = function() {
   //   }
 };
 
-var sl1 = new SoundLevel(music[0], check[0]);
-var sl2 = new SoundLevel(music[1], check[1]);
+var sl1 = new SoundLevel(music[0], check[1]);
