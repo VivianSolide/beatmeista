@@ -1,7 +1,7 @@
 //    Start game
 $("#go").click(function() {
-  sl1.play();
   sl1.html();
+  sl1.play();
   sl1.track();
   //    Box
   ///   1st track

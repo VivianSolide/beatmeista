@@ -10,10 +10,10 @@ function SoundLevel(music, check) {
     spot: music.spot
   };
   this.answers = {
-    kick: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    snare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    hhclosed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     hhopened: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    hhclosed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    snare: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    kick: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     answerTempo: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   };
   this.check = {
@@ -150,7 +150,7 @@ SoundLevel.prototype.play = function() {
         $("div.track.tempo > button[position='0']").toggleClass("shine");
       }
       if (that.i === 0) {
-        $("div.track.tempo > button[position=" + that.music.times - 1 + "]")
+        $("div.track.tempo > button[position=" + (that.music.times - 1) + "]")
           .removeClass()
           .addClass("box");
       }
@@ -161,22 +161,26 @@ SoundLevel.prototype.play = function() {
 SoundLevel.prototype.track = function() {
   var that = this;
   var arrayKeys = Object.keys(this.answers);
-  for (let i = arrayKeys.length - 1; i >= 0; i--) {
+  console.log(arrayKeys);
+  for (let i = 0; i < arrayKeys.length - 1; i++) {
+    console.log(that.answers, arrayKeys[i])
     $("#tracks > div.track" + i + " > button").click(function(){
-      $(this).toggleClass(Object.keys(that.answers).reverse()[i + 1]);
+      //$(this).toggleClass(Object.keys(that.answers).reverse()[i + 1]);
+      $(this).toggleClass(arrayKeys[i]);
+      if (that.answers[arrayKeys[i]][$(this).attr("position")] == 0) {
+        console.log('yolo');
+        new Audio(
+          "/home/vivian/Bureau/IRON HACK/2_PROJECTS/beatmeista/sounds/" +
+            that.music.id +
+            "/" + arrayKeys[i] + ".wav"
+        ).play();
+        that.answers[arrayKeys[i]].splice($(this).attr("position"), 1, 1);
+        // console.log(that.answers[i].splice($(this).attr("position"), 1, 1));
+      } 
+      else if (that.answers[arrayKeys[i]][$(this).attr("position")] == 1) {
+        that.answers[arrayKeys[i]].splice($(this).attr("position"), 1, 0);
+      }
     });
-    if (Object.keys(that.answers).reverse()[i + 1][$(this).attr("position")] == 0) {
-      new Audio(
-        "/home/vivian/Bureau/IRON HACK/2_PROJECTS/beatmeista/sounds/" +
-          that.music.id +
-          "/hho.wav"
-      ).play();
-      Object.keys(that.answers).reverse()[i + 1].splice($(this).attr("position"), 1, 1);
-      // console.log(that.answers[i].splice($(this).attr("position"), 1, 1));
-    } 
-    else if (Object.keys(that.answers).reverse()[i + 1][$(this).attr("position")] == 1) {
-      Object.keys(that.answers).reverse()[i + 1].splice($(this).attr("position"), 1, 0);
-    }
   }
 
   // $("#tracks > div.track0 > button").click(function() {
@@ -191,4 +195,4 @@ SoundLevel.prototype.track = function() {
   //   }
 };
 
-var sl1 = new SoundLevel(music[0], check[1]);
+var sl1 = new SoundLevel(music[0], check[0]);
