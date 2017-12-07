@@ -22,7 +22,7 @@ function SoundLevel(music, check) {
         snare: check.snare,
         hhclosed: check.hhclosed,
         hhopened: check.hhopened,
-        points: check.points
+        points: check.pts
     };
 }
 
@@ -176,6 +176,7 @@ SoundLevel.prototype.track = function() {
             } else if (that.answers[arrayKeys[i]][$(this).attr("position")] == 1) {
                 that.answers[arrayKeys[i]].splice($(this).attr("position"), 1, 0);
             }
+            that.score();
         });
     }
 };
@@ -187,18 +188,39 @@ SoundLevel.prototype.checking = function() {
     for (let i = 0; i < arrayKeys.length - 1; i++) {
         setInterval(function() {
             if (_.isEqual(that.answers[arrayKeys[i]], that.check[arrayKeys[i]]))
-            $("#tracks > div.track" + i + " > img.nope")
+                $("#tracks > div.track" + i + " > img.nope")
                 .removeClass()
                 .addClass("item align-top");
-            else if (!_.isEqual(that.answers[arrayKeys[i]], that.check[arrayKeys[i]]))
-              $("#tracks > div.track" + i + " > img.nope")
-                .removeClass()
-                .addClass("nope");
-        }, 1000);
+            else if (!_.isEqual(that.answers[arrayKeys[i]], that.check[arrayKeys[i]])) {
+                $("#tracks > div.track" + i + " > img.nope")
+                    .removeClass()
+                    .addClass("nope");
+            }
+        }, 100);
     }
 };
 
+SoundLevel.prototype.score = function() {
+    var that = this;
+    console.log("score")
+    var result = true;
+    var arrayKeys = Object.keys(this.answers);
+    console.log(this.answers, this.check)
+    for (let i = 0; i < arrayKeys.length; i++) {
+        if( arrayKeys[i] != 'answerTempo') {
+            result = result && _.isEqual(that.answers[arrayKeys[i]], that.check[arrayKeys[i]])
+            console.log('compare', arrayKeys[i], _.isEqual(that.answers[arrayKeys[i]], that.check[arrayKeys[i]]))
+        }
+    }
+    if (result == true) {
+        $("#gg" + that.music.id).removeClass("nope");
+        $("#s1 > div > div > div.col-lg-12.text-right > h2").text(that.check.points);
+    }
+
+}
+
 var sl1 = new SoundLevel(music[0], check[0]);
+var sl2 = new SoundLevel(music[1], check[1]);
 
 /*    ////hhopened
     if (_.isEqual(sl.answers.answerHhOpened, check[0].checkHhOpened))

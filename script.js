@@ -17,12 +17,16 @@ $("#go").click(function() {
       .removeClass()
       .addClass("box");
   });*/
-});
+})
+
+
 
 
 $('#gg1').click(function(){
-  sl2.play();
-  sl2.html();
+  sl1.html();
+  sl1.play();
+  sl1.track();
+  sl1.checking();
   //    Box
   ///   1st track
   ////  hho
