@@ -74,10 +74,10 @@ var check = [{
     },
     {
         id: "2",
-        kick: [],
-        snare: [],
-        hhclosed: [],
-        hhopened: [],
+        hhopened: [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0],
+        hhclosed: [1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1],
+        snare: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+        kick: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
         pts: 200
     }
 ];
@@ -217,6 +217,15 @@ SoundLevel.prototype.score = function() {
         $("#s1 > div > div > div.col-lg-12.text-right > h2").text(that.check.points);
     }
 
+}
+
+SoundLevel.prototype.inito = function(){
+    this.i = 0;
+    $("#title").text("");
+    $("#artist").text("");
+    $("#year").text("");
+    $('#tracks').text("");
+    $('.col-2').text("");
 }
 
 var sl1 = new SoundLevel(music[0], check[0]);
