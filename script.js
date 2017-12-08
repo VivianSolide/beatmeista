@@ -23,6 +23,7 @@ $("#go").click(function() {
 
 
 $('#gg1').click(function(){
+  sl1 = 0;
   sl2.inito();
   sl2.html();
   sl2.play();

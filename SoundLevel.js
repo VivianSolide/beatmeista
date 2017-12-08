@@ -192,7 +192,7 @@ SoundLevel.prototype.checking = function() {
                 .removeClass()
                 .addClass("item align-top");
             else if (!_.isEqual(that.answers[arrayKeys[i]], that.check[arrayKeys[i]])) {
-                $("#tracks > div.track" + i + " > img.nope")
+                $("#tracks > div.track" + i + " > img.item.align-top")
                     .removeClass()
                     .addClass("nope");
             }
@@ -202,14 +202,11 @@ SoundLevel.prototype.checking = function() {
 
 SoundLevel.prototype.score = function() {
     var that = this;
-    console.log("score")
     var result = true;
     var arrayKeys = Object.keys(this.answers);
-    console.log(this.answers, this.check)
     for (let i = 0; i < arrayKeys.length; i++) {
         if( arrayKeys[i] != 'answerTempo') {
-            result = result && _.isEqual(that.answers[arrayKeys[i]], that.check[arrayKeys[i]])
-            console.log('compare', arrayKeys[i], _.isEqual(that.answers[arrayKeys[i]], that.check[arrayKeys[i]]))
+            result = result && _.isEqual(that.answers[arrayKeys[i]], that.check[arrayKeys[i]]);
         }
     }
     if (result == true) {
@@ -220,23 +217,18 @@ SoundLevel.prototype.score = function() {
 }
 
 SoundLevel.prototype.inito = function(){
-    this.i = 0;
     $("#title").text("");
     $("#artist").text("");
     $("#year").text("");
     $('#tracks').text("");
     $('.col-2').text("");
+    $('#s1 > div > div > div.col-lg-12.text-right > h2').text("");
+    $('#s1 > div > div > div.col-lg-12.text-right > h3').text("");
+}
+
+SoundLevel.prototype.desctructor = function(){
+    // TODO: clear all setInterval
 }
 
 var sl1 = new SoundLevel(music[0], check[0]);
 var sl2 = new SoundLevel(music[1], check[1]);
-
-/*    ////hhopened
-    if (_.isEqual(sl.answers.answerHhOpened, check[0].checkHhOpened))
-      $("#tracks > div.track0 > img.nope")
-        .removeClass()
-        .addClass("item align-top");
-    else if (!_.isEqual(sl.answers.answerHhOpened, check[0].checkHhOpened))
-      $("#tracks > div.track0 > img.nope")
-        .removeClass()
-        .addClass("nope");*/
