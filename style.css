@@ -6,10 +6,10 @@ container {
   align-items: center;
 }
 .box {
-  height: 60px;
-  width: 60px;
+  height: 5vh;
+  width: 5vh;
   margin: 3px;
-  border-radius: 5px;
+  border-radius: 1.2vh;
   background-color: lightgray;
 }
 /* .box:hover {
@@ -45,9 +45,18 @@ div.track.tempo > button, .yolo {
   border-radius: 50%;
 }
 .shine {
-  height: 60px;
-  width: 60px;
-  margin: 3px;
-  border-radius: 50px;
   background-color: red !important;
 }
+
+/*.Daft {
+  background: #1c1c1c;
+  background-image: -webkit-linear-gradient(top, #1c1c1c, #2980b9);
+  background-image: -moz-linear-gradient(top, #1c1c1c, #2980b9);
+  background-image: -ms-linear-gradient(top, #1c1c1c, #2980b9);
+  background-image: -o-linear-gradient(top, #1c1c1c, #2980b9);
+  background-image: linear-gradient(to bottom, #1c1c1c, #2980b9);
+}*/
+
+/*.Daft , .kick {
+  background-color: red;
+}*/

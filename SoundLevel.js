@@ -90,7 +90,7 @@ SoundLevel.prototype.html = function() {
     for (var j = 0; j < Object.keys(this.music.sounds).length; j++) {
         html += '<div class="track' + j + '"><img src="">';
         for (var i = 0; i < this.music.times; i++) {
-            html += '<button class="box" position="' + i + '"></button>';
+            html += '<button class="box  ' + this.music.artist + ' " position="' + i + '"></button>';
         }
         html +=
             '<img src="http://cdn.onlinewebfonts.com/svg/img_237800.png" class="item align-top nope">';
@@ -163,7 +163,6 @@ SoundLevel.prototype.track = function() {
     var arrayKeys = Object.keys(this.answers);
     for (let i = 0; i < arrayKeys.length - 1; i++) {
         $("#tracks > div.track" + i + " > button").click(function() {
-            //$(this).toggleClass(Object.keys(that.answers).reverse()[i + 1]);
             $(this).toggleClass(arrayKeys[i]);
             if (that.answers[arrayKeys[i]][$(this).attr("position")] == 0) {
                 new Audio(
@@ -227,8 +226,9 @@ SoundLevel.prototype.inito = function(){
 }
 
 SoundLevel.prototype.desctructor = function(){
-    // TODO: clear all setInterval
-}
+    clearInterval(this.checking);
+    clearInterval(this.play);
+};
 
 var sl1 = new SoundLevel(music[0], check[0]);
 var sl2 = new SoundLevel(music[1], check[1]);
